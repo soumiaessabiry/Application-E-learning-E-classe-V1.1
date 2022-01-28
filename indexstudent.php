@@ -35,113 +35,49 @@
 							</div>
 						</div>
 					   <!-- ******************************** table******************************************** -->
-					 <div class="table-responsive-sm">
-						<?php 
-							$student=array(
-								array (
-									'Name'=>'username',
-									'Email'=>'user@email.com',
-									'Phone'=>7305477760,
-									'Enroll number'=>1234567305477760,
-									'Date of admission'=>'08-Dec, 2021',
-									),
-								array (
-									'Name'=>'username',
-									'Email'=>'karthi@gmmail.com',
-									'Phone'=>7305477760,
-									'Enroll number'=>1234567305477760,
-									'Date of admission'=>'08-Dec, 2021',
-									), 
-								array (
-									'Name'=>'username',
-									'Email'=>'karthi@gmmail.com',
-									'Phone'=>7305477760,
-									'Enroll number'=>1234567305477760,
-									'Date of admission'=>'08-Dec, 2021',
-									), 
-								array (
-									'Name'=>'username',
-									'Email'=>'karthi@gmmail.com',
-									'Phone'=>7305477760,
-									'Enroll number'=>1234567305477760,
-									'Date of admission'=>'08-Dec, 2021',
-									), 
-								array (
-									'Name'=>'username',
-									'Email'=>'karthi@gmmail.com',
-									'Phone'=>7305477760,
-									'Enroll number'=>1234567305477760,
-									'Date of admission'=>'08-Dec, 2021',
-									), 
-								array (
-									'Name'=>'username',
-									'Email'=>'karthi@gmmail.com',
-									'Phone'=>7305477760,
-									'Enroll number'=>1234567305477760,
-									'Date of admission'=>'08-Dec, 2021',
-									), 
-								array (
-									'Name'=>'username',
-									'Email'=>'karthi@gmmail.com',
-									'Phone'=>7305477760,
-									'Enroll number'=>1234567305477760,
-									'Date of admission'=>'08-Dec, 2021',
-									), 
-								
-								array (
-									'Name'=>'username',
-									'Email'=>'karthi@gmmail.com',
-									'Phone'=>7305477760,
-									'Enroll number'=>1234567305477760,
-									'Date of admission'=>'08-Dec, 2021',
-									), 
-								);
-
-							?>
-						
+					   <div class="table-responsive-sm">
 					   <table  width="100%" style="text-align:center "  class="table table-hover">
 							<thead>
-							<tr class="bg-light mt-5" style="color: #ACACAC;  height: 70px;">
-										<th scope="col"></th>
-										<th scope="col"  class="align-middle">Name</th>
-										<th scope="col" class="align-middle">Email</th>
-										<th scope="col" class="align-middle">Phone</th>
-										<th scope="col" class="align-middle">Enroll number</th>
-										<th scope="col" class="align-middle">Date of admission</th>
-										<th scope="col" class="align-middle"></th>
-									</tr>
+									       <tr class="bg-light mt-5" style="color: #ACACAC;  height: 70px;">
+												<th scope="col"></th>
+												<th scope="col"  class="align-middle">Name</th>
+												<th scope="col" class="align-middle">Email</th>
+												<th scope="col" class="align-middle">Phone</th>
+												<th scope="col" class="align-middle">Enroll number</th>
+												<th scope="col" class="align-middle">Date of admission</th>
+												<th scope="col" class="align-middle"></th>
+											</tr>
 							</thead>
-							<tbody style="height: 352px; text-align:center">
-							<?php 
-									foreach ($student as $key => $p) {
-							?>
-								<tr style=" border-bottom-width: 11px;" >
-								
-									<th scope="row">
-										<img src="photo2.jpg" alt="Pro-img" width="65" height="55">
-									</th>
-									<td><?php echo $p['Name'];?> </td>
-									<td><?php echo $p['Email']; ?></td>
-									<td><?php echo $p['Phone']; ?></td>
-									<td><?php echo $p['Enroll number']; ?></td>
-									<td><?php echo $p['Date of admission']; ?></td>
-									<td class="text-primary align-middle">
-										<i class="fas fa-pen pe-3"></i>
-										<i class="fas fa-trash"></i>
-									</td>
-							    </tr>
-							<?php } ?>
-							</tbody>
 
-					  </table>
-							
-					 </div>	
+							<tbody style="height: 352px; text-align:center">
+									<?php
+										        $data=file_get_contents('students.json');
+												$student=json_decode($data, true);
+											foreach ($student as $key => $p) {
+											echo'
+													<tr style=" border-bottom-width: 11px;" >
+													
+														<td scope="row">
+															<img src="photo2.jpg" alt="Pro-img" width="65" height="55">
+														</td>
+														<td>'. $p['Name'].'</td>
+														<td>'. $p['Email'].'</td>
+														<td>'. $p['Phone'].'</td>
+														<td>'. $p['Enroll number'].'</td>
+														<td>'. $p['Date of admission'].'</td>
+														<td class="text-primary align-middle">
+															<i class="fas fa-pen pe-3"></i>
+															<i class="fas fa-trash"></i>
+														</td>
+												</tr>';	
+											};	
+									?>	
+							</tbody>
+					    </table>
 					</div> 
-	</div> 
-			<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-           <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
-        </body>
-		</html>
-       
-		
+      	</div> 
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+   </body>
+ </html>
